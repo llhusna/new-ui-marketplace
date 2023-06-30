@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { images } from '../../constant'
 import {useNavigate} from 'react-router-dom'
 import { useWallet } from '../../hooks/useWallet';
+import artwork from "../../data/landing/artwork";
+import { Carousel } from '3d-react-carousal';
 
 
 function HeaderHero() {
@@ -27,6 +29,138 @@ function HeaderHero() {
     }
   }
 
+  
+
+  //slides carousel hardcoded
+  const slides =  [
+    <div className='border-[1px] border-rose-600 carousel-background md:h-[30vh] md:[60vw] lg:h-[65vh] lg:w-[50vw] min-[1920px]:h-[45vh] min-[1920px]:w-[50vw]'>
+    <div className='flex h-full'>
+      <div className='flex-col p-6 w-[40%] bg-black'>
+       
+          <div className='grid gap-x-4 font-medium lg:py-4 text-[10px] lg:text-xs w-4/5 '>
+        
+            <div className='grid grid-cols-4 gap-x-2'>
+            <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+              <div className=''>14</div>
+              <div className='text-[8px] lg:text-xs font-semibold'>DAYS</div>
+            </div>
+              <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+                <div className=''>12</div>
+                <div className='text-[8px] lg:text-xs font-semibold'>HRS</div>
+              </div>
+              <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+                <div className=''>20</div>
+                <div className='text-[8px] lg:text-xs font-semibold'>MINS</div>
+              </div>
+              <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+                <div className=''>05</div>
+                <div className='text-[8px] lg:text-xs font-semibold'>SECS</div>
+              </div>
+            </div>
+          </div>
+       
+          <div className='flex pt-6 gap-x-2 items-center font-bold text-lg lg:text-3xl'>
+            <span>SPACE NEON</span>
+            <span><img src={images.badge} /></span>
+          </div>
+        <div className='text-md text-xs'>By Austronouts</div>
+        <div className='pt-4 lg:pt-8 text-[9px] lg:text-xs'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </div>
+        <button className='text-[10px] lg:text-xs mt-4 lg:mt-12 py-1 lg:py-2'>Go to Launchpad</button>
+      </div>
+      <div className='flex w-[60%]'>
+        <img className='object-cover' src={images.carousel} alt="6" />
+      </div>
+    </div>
+    </div>,
+
+<div className='border-[1px] border-rose-600 carousel-background md:h-[30vh] md:[60vw] lg:h-[65vh] lg:w-[50vw] min-[1920px]:h-[45vh] min-[1920px]:w-[50vw]'>
+<div className='flex h-full'>
+  <div className='flex-col p-6 w-[40%] bg-black'>
+   
+      <div className='grid gap-x-4 font-medium lg:py-4 text-[10px] lg:text-xs w-4/5 '>
+    
+        <div className='grid grid-cols-4 gap-x-2'>
+        <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+          <div className=''>14</div>
+          <div className='text-[8px] lg:text-xs font-semibold'>DAYS</div>
+        </div>
+          <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+            <div className=''>12</div>
+            <div className='text-[8px] lg:text-xs font-semibold'>HRS</div>
+          </div>
+          <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+            <div className=''>20</div>
+            <div className='text-[8px] lg:text-xs font-semibold'>MINS</div>
+          </div>
+          <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+            <div className=''>05</div>
+            <div className='text-[8px] lg:text-xs font-semibold'>SECS</div>
+          </div>
+        </div>
+      </div>
+   
+      <div className='flex pt-6 gap-x-2 items-center font-bold text-lg lg:text-3xl'>
+        <span>SPACE NEON</span>
+        <span><img src={images.badge} /></span>
+      </div>
+    <div className='text-md text-xs'>By Austronouts</div>
+    <div className='pt-4 lg:pt-8 text-[9px] lg:text-xs'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </div>
+    <button className='text-[10px] lg:text-xs mt-4 lg:mt-12 py-1 lg:py-2'>Go to Launchpad</button>
+  </div>
+  <div className='flex w-[60%]'>
+    <img className='object-cover' src="https://picsum.photos/800/300/?random" alt="6" />
+  </div>
+</div>
+</div>,
+
+<div className='border-[1px] border-rose-600 carousel-background md:h-[30vh] md:[60vw] lg:h-[65vh] lg:w-[50vw] min-[1920px]:h-[45vh] min-[1920px]:w-[50vw]'>
+    <div className='flex h-full'>
+      <div className='flex-col p-6 w-[40%] bg-black'>
+       
+          <div className='grid gap-x-4 font-medium lg:py-4 text-[10px] lg:text-xs w-4/5 '>
+        
+            <div className='grid grid-cols-4 gap-x-2'>
+            <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+              <div className=''>14</div>
+              <div className='text-[8px] lg:text-xs font-semibold'>DAYS</div>
+            </div>
+              <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+                <div className=''>12</div>
+                <div className='text-[8px] lg:text-xs font-semibold'>HRS</div>
+              </div>
+              <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+                <div className=''>20</div>
+                <div className='text-[8px] lg:text-xs font-semibold'>MINS</div>
+              </div>
+              <div className='bg-black p-1 border-[1px] border-gray-600 rounded-md'>
+                <div className=''>05</div>
+                <div className='text-[8px] lg:text-xs font-semibold'>SECS</div>
+              </div>
+            </div>
+          </div>
+       
+          <div className='flex pt-6 gap-x-2 items-center font-bold text-lg lg:text-3xl'>
+            <span>SPACE NEON</span>
+            <span><img src={images.badge} /></span>
+          </div>
+        <div className='text-md text-xs'>By Austronouts</div>
+        <div className='pt-4 lg:pt-8 text-[9px] lg:text-xs'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </div>
+        <button className='text-[10px] lg:text-xs mt-4 lg:mt-12 py-1 lg:py-2'>Go to Launchpad</button>
+      </div>
+      <div className='flex w-[60%]'>
+        <img className='object-cover' src="https://picsum.photos/800/300/?random" alt="6" />
+      </div>
+    </div>
+    </div>,
+
+   
+  ];
+
+  <img className='object-cover' src="https://picsum.photos/800/302/?random" alt="6" />
+
+/*   <img  src="https://picsum.photos/800/303/?random" alt="4" className='border-[1px] border-rose-600 carousel-background md:h-[30vh] md:[60vw] lg:h-[65vh] lg:w-[50vw]'/>  ,
+    <img  src="https://picsum.photos/800/304/?random" alt="5" className='border-[1px] border-rose-600 carousel-background md:h-[30vh] md:[60vw] lg:h-[65vh] lg:w-[50vw]'/>  */ 
+ 
 
 /* onst [isSignedIn, setIsSignedIn] = useState(false);
 const handleClickCreate = async () => {
@@ -45,30 +179,13 @@ const handleClickCreate = async () => {
   return (
     <>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-4 h-screen content-center">
-      <div className="flex md:col-span-1 justify-center">
-        <div className='flex flex-col gap-y-2 font-bold'>                      
-            <div className='text-sm text-orange-600'>3six9 NFT Marketplace</div>
-            <div className='text-lg text-white'>A New Era of NFT Utility</div>
-            <div className='text-4xl text-white leading-10'>Creator<br/>Economy<br/>Machine</div>
-            <div className='text-2xl text-white'>Built on Aurora Blockchain</div>
-
-            <div className='flex font-light text-sm my-8 gap-4'>
-              <button className="py-3 px-6" onClick={()=>navigate("/Marketplace")}>Explore</button>
-              <button className="py-3 px-6" onClick={handleClickCreate}>Create</button>
-            </div>
-
-        </div>
-
-       
-      </div>
-
-      <div className="flex md:col-span-1 justify-center">
-        <div className='font-bold'>                      
-            <img src={images.hero} width="300px" height="600px"/>
-        </div>
-      </div>
-               
+    <div className='min-[1920px]:mt-10'>
+    <Carousel
+          slides={slides}
+          autoplay={false}
+          interval={5000}
+          arrows={true}
+        />
     </div>
 
    </>

@@ -58,7 +58,7 @@ export const Dashboard = () => {
 
   return (
     <div>
-      <div className="ml-1 mr-8">
+      <div className="ml-1 mr-8 w-[90%]">
         <div className="py-6 text-gray-300 text-lg">Profile Overview</div>
         <div>
           <div className="grid grid-cols-2 md:grid-cols-3 rounded-lg relative py-6 gap-6 text-black">

@@ -7,9 +7,9 @@ import { useWallet } from "../hooks/useWallet";
 export function SignInPrompt({ onClick }) {
   return (
     <div>
-      <button className="text-sm px-4 py-4" onClick={onClick}>
-        Sign in
-      </button>
+      <span className="text-sm" onClick={onClick}>
+          <img className="w-4 h-4 lg:w-6 lg:h-6" src={images.avatarheader} />
+      </span>
     </div>
   );
 }
@@ -56,9 +56,9 @@ export function SignOutButton({ onHandleSignOut }) {
     <div ref={walletRef} onClick={() => onToggleDropdown()}>
       <div
         id="dropdownUserAvatarButton"
-        className="flex text-sm rounded-full mx-2"
+        className="flex mx-3 text-sm bg-orange-600 rounded-full md:mr-0"
       >
-        <img className="w-10 h-10 rounded-full" src={avatar} />
+        <img className="w-4 h-4 lg:w-6 lg:h-6 rounded-full"  src={avatar} />
       </div>
 
       {open ? (
@@ -121,7 +121,6 @@ export const ConnectWallet = () => {
 
   useEffect(() => {
     if (accountId) {
-      console.log(accountId);
       setLoaded(true);
     }
   }, [accountId, loaded]);

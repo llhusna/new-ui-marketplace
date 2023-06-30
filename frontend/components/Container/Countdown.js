@@ -28,11 +28,23 @@ function AuctionCountdown({ data }) {
 
   return (
     <>
-    <div className='flex gap-x-4 font-medium text-md'>
-      <div>{timeLeft.days}</div>
-      <div>{timeLeft.hours}</div>
-      <div>{timeLeft.minutes}</div>
-      <div>{timeLeft.seconds}</div>
+    <div className='flex gap-x-1 lg:gap-x-4 font-medium text-xs lg:text-md'>
+      <div>
+        <div>{timeLeft.days}</div>
+        <div className='text-[10px]'>Day</div>
+      </div>
+      <div>
+        <div>{timeLeft.hours}</div>
+        <div className='text-[10px]'>Hrs</div>
+      </div>
+      <div>
+        <div>{timeLeft.minutes}</div>
+        <div className='text-[10px]'>Min</div>
+      </div>
+      <div>
+        <div>{timeLeft.seconds}</div>
+        <div className='text-[10px]'>Sec</div>
+      </div>
     </div>
     </>
   );

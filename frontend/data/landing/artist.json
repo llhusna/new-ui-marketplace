@@ -1,15 +1,28 @@
-{
+
+  {
       "result": [
         {
-          "artist_public_address": "0x2De5cf8788e002EEfa135047C3f839Ca2761Cd7d",
-          "recent_sales_of_artist": "36000000000000000",
+          "artist_public_address": "0x8c136fD8c8aeFA6D3ea0b6EF43BD390d7Be98eA8",
+          "recent_sales_of_artist": null,
           "user_follow_count": 0,
           "curated_info_of_user": {
-            "user_public_address": "0x2De5cf8788e002EEfa135047C3f839Ca2761Cd7d",
-            "username": "teal_arts",
-            "profile_photo_path": "https://ipfs.io/ipfs/QmbrDSxUySGYynLAWc9AfmHiD1Nc81VkF9A5fH2nh827Za",
-            "cover_photo_path": "https://ipfs.io/ipfs/Qmb5qERNjXV87rPUXAFifSzotxDRU9t8sirvd46siA8EfQ",
-            "about_desc": "An intuitive, self-taught artist who loves expressing her artwork through floral and nature-related abstracts."
+            "user_public_address": "0x8c136fD8c8aeFA6D3ea0b6EF43BD390d7Be98eA8",
+            "username": "trianglecirclesquare",
+            "profile_photo_path": "https://ipfs.io/ipfs/QmZ1r49agj7jsfam9wrwFnmwdjJDQ52NMc8MMCBZtSSsad",
+            "cover_photo_path": "https://ipfs.io/ipfs/QmPmF9q5o87vW1Jq22oefYP5Xj2x52HiZ7ekpZaw5yJiB8",
+            "about_desc": "I am a 1/1 artist since childhood, drawing in notebooks, on canvas, graffiti, stickers, tattoos and now I am drawing NFT."
+          }
+        },
+        {
+          "artist_public_address": "0x006a27cAd671B26a1cCC7eB43436e81049d93E94",
+          "recent_sales_of_artist": null,
+          "user_follow_count": 0,
+          "curated_info_of_user": {
+            "user_public_address": "0x006a27cAd671B26a1cCC7eB43436e81049d93E94",
+            "username": "crypto_doctor",
+            "profile_photo_path": "https://ipfs.io/ipfs/QmXW7MNt8iRq6ZSTdeg18UWaX6D4jSrWTsoSZJCjM2Ceju",
+            "cover_photo_path": null,
+            "about_desc": "Lover of culture, and a BUIDLer "
           }
         }
       ]

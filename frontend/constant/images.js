@@ -13,6 +13,13 @@ import share from "../assets/img/share.svg";
 import plus from "../assets/img/plus.svg";
 import deleteInput from "../assets/img/delete.svg";
 import loadNft from "../assets/img/threedotsloading.svg";
+import wallet from "../assets/img/wallet.svg";
+import avatarheader from "../assets/img/avatarheader.svg";
+import uploadcreation from "../assets/img/uploadcreation.svg";
+import badge from "../assets/img/badge.svg";
+import addcollection from "../assets/img/addcollection.svg";
+import pulse from "../assets/img/pulse.svg";
+import shapes from "../assets/img/shapes.svg";
 
 import profile from "../assets/img/default.png";
 import setting from "../assets/img/settings.png";
@@ -20,6 +27,9 @@ import logout from "../assets/img/logout.png";
 import create from "../assets/img/create.png";
 import avatar from "../assets/card/avatar.png";
 import artist from "../assets/card/artist.png";
+import dummy from "../assets/img/dummy.png";
+import carousel from "../assets/img/HeroCarousel.png";
+
 
 import logo from "../assets/img/logo.jpeg";
 
@@ -58,4 +68,13 @@ export default {
   medium,
   loadNft,
   profile,
+  wallet,
+  avatarheader,
+  dummy,
+  carousel,
+  uploadcreation,
+  badge,
+  addcollection,
+  pulse,
+  shapes
 };

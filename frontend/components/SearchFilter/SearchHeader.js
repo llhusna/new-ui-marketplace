@@ -35,13 +35,13 @@ function SearchHeader() {
             type="search"
             name="search-form"
             id="search-form"
-            className="h-10 rounded-full border border-gray-700 focus:outline focus:outline-gray-500"
+            className="outline outline-[1px] outline-gray-800 h-0 lg:h-8 rounded-full"
             placeholder="Search items, collections, and accounts"
             style={{
               width: "320px",
               padding: "20px",
               background: "none",
-              fontSize: "13px",
+              fontSize: "11px",
             }}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}

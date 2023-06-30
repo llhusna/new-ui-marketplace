@@ -26,7 +26,11 @@ import { SingleCreation } from "./pages/SingleCreation";
 import MyBids from "./pages/MyBids";
 import FAQs from "./pages/FAQs";
 import { SingleCollectible } from "./pages/SingleCollectible";
+import { StatsDashboard } from "./pages/StatsDashboard";
 import { TestSale } from "./pages/TestSale";
+import { NewSingleNFTMarketplace } from "./pages/NewSingleNFTMarketplace";
+import NewMarketplace from "./pages/NewMarketplace";
+import { NewMarketplaceCollection } from "./pages/NewMarketplaceCollection";
 
 export default function App() {
   const { ipfs, ipfsInitError } = useIpfsFactory();
@@ -55,7 +59,15 @@ export default function App() {
             <Route path=":contract_id/:id" element={<SingleNFTMarketplace />} />
           </Route>
 
+          <Route exact path="newmarketplace">
+            <Route index element={<NewMarketplace />} />
+            <Route path=":id" element={<NewSingleNFTMarketplace/>} />
+          </Route>
+
+
           <Route strict exact path="activity" element={<Activity />} />
+
+          <Route strict exact path="dashboard" element={<StatsDashboard/>}/>
 
           <Route exact path="auctions">
             <Route index element={<Auctions />} />
@@ -69,6 +81,10 @@ export default function App() {
 
           <Route exact path="collection">
             <Route path=":id" element={<MarketplaceCollection />} />
+          </Route>
+
+          <Route exact path="newcollection">
+            <Route path=":id" element={<NewMarketplaceCollection />} />
           </Route>
 
           <Route exact path="collectible">

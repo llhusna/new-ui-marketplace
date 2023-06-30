@@ -1,8 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react'
 import { images } from '../constant';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import AuctionCountdown from '../components/Container/Countdown'
 import AuctionCountdownDesc from '../components/Container/CountdownDesc'
+import artwork from "../data/landing/artwork";
 
 //collectible auction info
 const auction = {
@@ -66,15 +68,17 @@ function SingleAuction() {
 
   return (
     <>
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mx-4 text-white pt-20 m-10 md:m-16 lg:m-0">
+    <div className="grid grid-cols-1 lg:grid-cols-2 mx-4 text-white pt-20">
 
       {/* left section */}
-      <div className="flex col-span-1 justify-center relative">
-        { showModal ?
+      <div className="flex col-span-1 justify-end relative ml-10">
+
+        {/* modal left section */}
+       {/*  { showModal ?
           <div className='flex bg-white py-10 text-black rounded-lg px-6 w-full text-[14px] divide-x lg:w-[75%] absolute z-3 bottom-0 lg:bottom-1/4' onClick={() => setShowModal(false)}>
               <div className='flex flex-col gap-y-1 pr-4'> 
                 <div className='font-medium pb-4'>Starting price</div>
-                <div className='text-3xl font-medium'>{/* {auction.starting_price} */}0.004 {auction.currency_symbol}</div>
+                <div className='text-3xl font-medium'>0.004 {auction.currency_symbol}</div>
                 <div className='font-semibold'>(+Platform fee 0.0001{auction.currency_symbol})</div>
                 <div className='font-semibold text-gray-500'>$5.3249</div>
               </div>
@@ -83,57 +87,67 @@ function SingleAuction() {
                 <AuctionCountdownDesc data={data}/>
               </div>
           </div>
-          : null}
-          <img className="rounded-xl w-full h-full md:full md:h-full lg:w-3/5 lg:h-4/5" src={data.auctions_of_collectible.ipfs_media_path}  />
+          : null} */}
+
+            {/* content left section */}
+           <div className='flex flex-col md:w-4/5'>
+
+              <div className='text-3xl font-medium py-2 flex gap-x-2 items-center'>
+                  {data.auctions_of_collectible.collectible_name}
+                  <img src={images.badge} />
+              </div>
+
+              <div className='flex justify-between'>
+                  <div className='text-xs'>
+                      <span>Created by</span>
+                      <span className='text-red-600'> Creator Name</span>
+                  </div> 
+              </div>
+
+              <div className='flex justify-between items-center mt-6 bg-[#242424] py-4 px-8 rounded-lg'>
+                  <div className='text-2xl font-semibold'>AUCTION STARTS IN</div>
+                  <AuctionCountdownDesc data={data}/>
+              </div>
+
+              <div className='flex justify-between items-center mt-3 border-[1px] border-red-600 bg-[#242424] py-6 px-8 rounded-lg'>
+                  <div>
+                      <div className='text-sm font-semibold text-opensans'>Starting Bid</div>
+                        <div>
+                          <span className='text-red-600 font-semibold text-2xl'>0.0035 {auction.currency_symbol}</span>
+                          <span className='text-white pb-4 text-sm font-semibold'> $60.5905</span>
+                        </div>
+                  </div>
+                  <div>
+                      <button 
+                      onClick={() => setShowModal(true)} 
+                      className='text-sm px-9 py-2 bg-[#FF4F37]'>Place bid</button>
+                  </div>
+              </div>
+
+              <div className='grid pt-2'>
+                  <div className='bg-[#373737] text-xs py-6 px-10 rounded-sm'>
+                    {/* {info.collectible_description} */}
+                    Brought to you by Phygitals Inc, RetroGoons is a unique phygital collection that caters to both retro enthusiasts and art collectors. The collection features a series of nostalgicically-designed characters that pay homage to classic video game and pop culture icons. Each character is available as a limited edition 1/1 piece with a carefully crafted asset catalogue.
+                  </div>
+              </div>
+          </div>
       </div>
 
       {/* right section */}
-      <div className="flex col-span-1 lg:w-4/5 justify-center">
+      <div className="">
         { !showModal ?
-          <div className='flex flex-col w-full'>
 
-            <div className='flex gap-x-8 mb-12 pt-10 lg:pt-0'>
-              <div className='bg-white rounded-full p-4'><img src={images.beforeliked} /></div>
-              <div className='bg-white rounded-full p-4'><img src={images.plus} /></div>
-              <div className='bg-white rounded-full py-4 px-3'><img src={images.share} /></div>
-            </div>
-
-            <div className='flex gap-x-4 items-center pb-4'>
-                <span><img src={`https://ipfs.io/ipfs/${auction.seller_profile_photo_path}`} className="creator-size"/></span>
-                <span>
-                    <div className='font-bold'>{data.auctions_of_collectible.collectibles_user.username}</div>
-                </span>
-            </div>
-
-            <div className='text-5xl font-bold pb-12'>{data.auctions_of_collectible.collectible_name}</div>
-
-            <div className='flex gap-x-10 bg-white py-10 rounded-lg px-6 text-[14px] text-black divide-x'>
-              <div className='flex-col gap-y-1'> 
-                <div className='font-medium pb-4'>Starting price</div>
-                <div className='text-3xl font-medium'>{/* {auction.starting_price} */}0.004 {auction.currency_symbol}</div>
-                <div className='font-semibold'>(+Platform fee 0.0001{auction.currency_symbol})</div>
-                <div className='font-semibold text-gray-500'>$5.3249</div>
-              </div>
-              <div className='pl-6'>
-                <div className='font-semibold'>Auction ending in</div>
-                <AuctionCountdownDesc data={data}/>
-              </div>
-            </div>
-
-            <div 
-              onClick={() => setShowModal(true)} 
-              className='outline outline-orange-600 bg-none py-6 my-10 text-orange-600 rounded-lg text-center font-semibold hover:bg-orange-600 hover:text-white'>
-              Place a bid
-            </div>
-          </div>
+        <div className='flex col-span-1 justify-center relative mt-6 lg:mt-0 -translate-x-10'>
+          <img className='rounded-md md:w-full lg:w-4/6 object-contain border-[1px] border-rose-600 carousel-background h-[500px]' src={data.auctions_of_collectible.ipfs_media_path}   />  
+        </div>      
         : 
-          <div className="flex flex-col w-full mr-10">
+        <></>
+         /*  <div className="flex flex-col w-full mr-10">
                       <div className='flex flex-col col-span-1'>
                       <div className='text-3xl lg:text-5xl  pb-10 pt-10 lg:pt-2 text-black font-semibold'>Place a bid</div>
                           <div className='grid md:grid-cols-4 rounded-xl border-[1px] bg-white border-gray-200 mt-2'>
                                             <div className="flex items-center md:col-span-3 justify-between">
                                                 <input
-                                                    /* type="number" */
                                                     name="reservedPrice"
                                                     className="h-16 w-full rounded-md pl-6 focus:outline-none"
                                                 />
@@ -179,49 +193,180 @@ function SingleAuction() {
                           </div>
 
                           <div className='pt-8 text-sm font-medium'>Bids placed in an auction cannot be withdrawn</div>
-                          <div className='pt-2 text-sm font-medium text-gray-400'>Learn how our auctions work</div>
-
-                          
+                          <div className='pt-2 text-sm font-medium text-gray-400'>Learn how our auctions work</div>          
               </div>
-          </div>
+          </div> */
       }
       </div>
-     
-    </div>
-    
+      </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-1 mx-4 text-white pt-20">
-        <div className='flex justify-center gap-20'>
-           <span className='rounded-full h-10 px-4 bg-transparent active:bg-white' onClick={() => setOpen(true)} >Description</span>
-           <span className='rounded-full h-10 px-4' onClick={() => setOpen(false)} >Bidding History</span>
+
+       {/* bottom section */}
+    <div className='px-10 mt-16'>
+        <div className='flex justify-between items-center'>
+          <div className='flex gap-x-10 items-center'>
+              <span className='font-semibold text-2xl'>Auctions</span>
+          </div>
+          <span><Link className='text-sm border-[1px] px-4 py-2 rounded-lg' to="/Marketplace">View all</Link></span>
         </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-8 mt-10 mb-24">
 
-        <div className='justify-center bg-white rounded-lg text-black my-6 p-20 mx-2 lg:mx-56'>
-        { open ? 
-          <div className='flex flex-col gap-y-8'>
+        {artwork.rows.slice(0, 2).map((data, index) => (
+          <div key={index} 
+          className="flex flex-col md:col-span-1 relative bg-center bg-cover rounded-lg relative h-40 md:h-52 lg:h-80 hover:border-[1px] hover:border-rose-600 card-background" 
+          style={{ backgroundImage: `url(${data.featured_collectible_info.alternative_media_path})` }}
+        >    
+        
+          <div className=''>
+              <div className='flex py-2 mx-2 lg:py-4 lg:mx-4 absolute top-0 gap-x-2'>
                 <div>
-                    <span className='font-medium text-lg'>Description</span>
-                    <div className='font-medium text-md text-gray-500'>{info.collectible_description}</div>
+                  <img src={data.featured_collectible_info.collectibles_user.profile_photo_path} className="creator-size"/>
                 </div>
 
                 <div>
-                  <span className='font-medium text-lg'>Token Address</span>
-                    <div className='font-medium text-md text-gray-500'>{auction.token_address}</div>
+                  <div className='text-xs lg:text-lg font-semibold block w-[100px] lg:w-[160px] truncate'>{data.featured_collectible_info.collectible_name}</div>
+                  <div className='text-[9px] lg:text-sm block w-[100px] lg:w-[160px] truncate'>{data.featured_collectible_info.collectibles_user.username}</div>
+                </div>
+              </div>
+
+              <div className='absolute bottom-0 w-full'>
+              <div className='m-1 lg:m-2 rounded-lg opaque-bg'>
+                <div className='grid grid-cols-2 lg:py-2 divide-x'>
+                  <div className='flex flex-col place-items-center'>
+                    <div className='pt-1 pb-2' >
+                    <div className='text-[10px] lg:text-xs'>Mint Price</div>
+                    <div className='text-[11px] lg:text-sm'>4.06 ETH</div>
+                    <div className='text-[10px] lg:text-xs font-light'>5100 usd</div>
+                    </div>
+                  </div>
+                  <div className='flex flex-col place-items-center'>
+                    <div className='pt-1 pb-2'>
+                    <div className='text-[10px] lg:text-xs font-light'>Item Number</div>
+                    <div className='text-[11px] lg:text-sm'>1000</div>
+                    <div className='text-[10px] lg:text-xs font-light'>5100 usd</div>
+                    </div>
+                  </div>
+              </div>
+              </div>
+              </div>
+          </div>
+       </div>
+        ))}
+        </div>
+    </div>
+
+    <div className='px-10'>
+        <div className='flex justify-between items-center'>
+          <div className='flex gap-x-10 items-center'>
+              <span className='font-semibold text-2xl'>Auctions</span>
+          </div>
+          <span><Link className='text-sm border-[1px] px-4 py-2 rounded-lg' to="/Marketplace">View all</Link></span>
+        </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-8 mt-10 mb-24">
+
+        {artwork.rows.slice(0, 1).map((data, index) => (
+           <div key={index} 
+           className="flex flex-col md:col-span-1 relative bg-center bg-cover rounded-lg relative h-40 md:h-52 lg:h-80 hover:border-[1px] hover:border-rose-600 card-background" 
+           style={{ backgroundImage: `url(${data.featured_collectible_info.alternative_media_path})` }}
+         >    
+         
+           <div className=''>
+               <div className='flex py-2 mx-2 lg:py-4 lg:mx-4 absolute top-0 gap-x-2'>
+                 <div>
+                   <img src={data.featured_collectible_info.collectibles_user.profile_photo_path} className="creator-size"/>
+                 </div>
+
+                 <div>
+                   <div className='text-xs lg:text-lg font-semibold block w-[100px] lg:w-[160px] truncate'>{data.featured_collectible_info.collectible_name}</div>
+                   <div className='text-[9px] lg:text-sm block w-[100px] lg:w-[160px] truncate'>{data.featured_collectible_info.collectibles_user.username}</div>
+                 </div>
                </div>
 
-                <div>
-                    <span className='font-medium text-md'>Token Id</span>
-                    <div className='font-medium text-md text-gray-500'>{auction.token_id}</div>
-                </div>
-            </div>
-        : 
-            <div>
-              <span className='font-medium text-lg'>Description</span>
-            </div>
-         }
+               <div className='absolute bottom-0 w-full'>
+               <div className='m-1 lg:m-2 rounded-lg opaque-bg'>
+                 <div className='grid grid-cols-2 lg:py-2 divide-x'>
+                   <div className='flex flex-col place-items-center'>
+                     <div className='pt-1 pb-2' >
+                     <div className='text-[10px] lg:text-xs'>Mint Price</div>
+                     <div className='text-[11px] lg:text-sm'>4.06 ETH</div>
+                     <div className='text-[10px] lg:text-xs font-light'>5100 usd</div>
+                     </div>
+                   </div>
+                   <div className='flex flex-col place-items-center'>
+                     <div className='pt-1 pb-2'>
+                     <div className='text-[10px] lg:text-xs font-light'>Item Number</div>
+                     <div className='text-[11px] lg:text-sm'>1000</div>
+                     <div className='text-[10px] lg:text-xs font-light'>5100 usd</div>
+                     </div>
+                   </div>
+               </div>
+               </div>
+               </div>
+           </div>
         </div>
-
+        ))}
+        </div>
     </div>
+
+    <div className='px-10'>
+        <div className='flex justify-between items-center'>
+          <div className='flex gap-x-10 items-center'>
+              <span className='font-semibold text-2xl'>Auctions</span>
+          </div>
+          <span><Link className='text-sm border-[1px] px-4 py-2 rounded-lg' to="/Marketplace">View all</Link></span>
+        </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-8 mt-10 mb-24">
+
+        {artwork.rows.map((data, index) => (
+          <div key={index} 
+          className="flex flex-col md:col-span-1 relative bg-center bg-cover rounded-lg relative h-40 md:h-52 lg:h-80 hover:border-[1px] hover:border-rose-600 card-background" 
+          style={{ backgroundImage: `url(${data.featured_collectible_info.alternative_media_path})` }}
+        >    
+        
+          <div className=''>
+              <div className='flex py-2 mx-2 lg:py-4 lg:mx-4 absolute top-0 gap-x-2'>
+                <div>
+                  <img src={data.featured_collectible_info.collectibles_user.profile_photo_path} className="creator-size"/>
+                </div>
+
+                <div>
+                  <div className='text-xs lg:text-lg font-semibold block w-[100px] lg:w-[160px] truncate'>{data.featured_collectible_info.collectible_name}</div>
+                  <div className='text-[9px] lg:text-sm block w-[100px] lg:w-[160px] truncate'>{data.featured_collectible_info.collectibles_user.username}</div>
+                </div>
+              </div>
+
+              <div className='absolute bottom-0 w-full'>
+              <div className='m-1 lg:m-2 rounded-lg opaque-bg'>
+                <div className='grid grid-cols-2 lg:py-2 divide-x'>
+                  <div className='flex flex-col place-items-center'>
+                    <div className='pt-1 pb-2' >
+                    <div className='text-[10px] lg:text-xs'>Mint Price</div>
+                    <div className='text-[11px] lg:text-sm'>4.06 ETH</div>
+                    <div className='text-[10px] lg:text-xs font-light'>5100 usd</div>
+                    </div>
+                  </div>
+                  <div className='flex flex-col place-items-center'>
+                    <div className='pt-1 pb-2'>
+                    <div className='text-[10px] lg:text-xs font-light'>Item Number</div>
+                    <div className='text-[11px] lg:text-sm'>1000</div>
+                    <div className='text-[10px] lg:text-xs font-light'>5100 usd</div>
+                    </div>
+                  </div>
+              </div>
+              </div>
+              </div>
+          </div>
+       </div>
+        ))}
+        </div>
+    </div>
+     
+  
+
+    
    </>
   )
 }

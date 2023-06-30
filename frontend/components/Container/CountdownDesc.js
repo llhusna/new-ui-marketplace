@@ -28,22 +28,20 @@ function AuctionCountdownDesc({ data }) {
 
   return (
     <>  
-    <div className='flex gap-x-4 font-medium text-md pt-4 text-left'>
-      <div>
-        <div className='text-3xl'>{timeLeft.days}</div>
-        <div className='text-gray-500 font-semibold'>Days</div>
-      </div>
-      <div>
-        <div className='text-3xl'>{timeLeft.hours}</div>
-        <div className='text-gray-500 font-semibold'>Hours</div>
-      </div>
-      <div>
-        <div className='text-3xl'>{timeLeft.minutes}</div>
-        <div className='text-gray-500 font-semibold'>Minutes</div>
-      </div>
-      <div>
-        <div className='text-3xl'>{timeLeft.seconds}</div>
-        <div className='text-gray-500 font-semibold'>Seconds</div>
+    <div className='flex gap-x-4 font-medium text-md pt-2 text-center'>
+    <div className='grid grid-cols-3 gap-x-2'>
+        <div className='bg-black p-2 border-[1px] border-gray-600 rounded-md'>
+          <div className='text-md'>{timeLeft.hours}</div>
+          <div className='text-sm font-semibold'>HRS</div>
+        </div>
+        <div className='bg-black p-2 border-[1px] border-gray-600 rounded-md'>
+          <div className='text-md'>{timeLeft.minutes}</div>
+          <div className='text-sm font-semibold'>MINS</div>
+        </div>
+        <div className='bg-black p-2 border-[1px] border-gray-600 rounded-md'>
+          <div className='text-md'>{timeLeft.seconds}</div>
+          <div className='text-sm font-semibold'>SECS</div>
+        </div>
       </div>
     </div>
     </>

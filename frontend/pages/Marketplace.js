@@ -173,43 +173,21 @@ function Marketplace() {
   
 
   return (
-    <div className='pt-10 mx-20 min-[1920px]:mx-48'>
-        <div className="font-bold pt-6 text-3xl">Explore Marketplace</div>
-        <div className="grid">
-        <div className="flex my-16 items-center">
-          <div
-            className="cursor-pointer"
-            onClick={handlePrev}
-            disabled={currentIndex === 0}
-          >
-            <img src={images.arrow} className="" />
-          </div>
-          {/* <div className="flex mx-4 gap-4 overflow-x-hidden w-full justify-around">
+    <div className='pt-10 min-h-screen'>
+
+     {/*  slider button */}
+        <div className="grid grid-cols-1 mx-4 lg:mx-16 min-[1920px]:mx-48">
+          <div className="flex gap-x-1 lg:gap-x-2 w-full">
             {slideOption
-              .slice(currentIndex, currentIndex + 5)
               .map((option, index) => (
                 <button
                   key={index}
-                  className="w-[18%] flex-nowrap flex-none rounded-full bg-white text-orange-600 py-3 text-center border-2 border-orange-600 hover:bg-orange-600 hover:text-white cursor-pointer"
-                  onClick={() => {
-                    setSlideSelected(option.value);
-                  }}
-                >
-                  {option.label}
-                </button>
-              ))}
-          </div> */}
-          <div className="flex mx-4 gap-4 overflow-x-hidden w-full justify-around">
-            {slideOption
-              .slice(currentIndex, currentIndex + 5)
-              .map((option, index) => (
-                <button
-                  key={index}
-                  className={`w-[18%] flex-nowrap flex-none rounded-full text-center py-3 border-2 ${
+                 /*  className={`w-[18%] flex-nowrap flex-none rounded-full text-center py-3 border-2 ${
                     slideSelected === option.value
                       ? "bg-orange-600 text-white border-orange-600"
                       : "bg-white text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white"
-                  } cursor-pointer`}
+                  } cursor-pointer`} */
+                  className='w-1/3 rounded-sm lg:rounded-md bg-[#373737] text-white text-[8px] lg:text-xs py-2 lg:py-4 text-center hover:bg-red-600'
                   onClick={() => {
                     setSlideSelected(option.value);
                   }}
@@ -218,56 +196,48 @@ function Marketplace() {
                 </button>
               ))}
           </div>
-          <div
-            className="cursor-pointer"
-            onClick={handleNext}
-            disabled={currentIndex === slideOption.length - 5}
-          >
-            <img className="rotate-180 " src={images.arrow} />
-          </div>
         </div>
-      </div>
 
       {/* filter function */}
-      <div className="flex justify-start items-center w-full mx-auto ">
-        <div onClick={() => onToggleDropdown()}>
-          <div className="text-black text-sm font-medium border-2 bg-white border-orange-600 rounded-xl px-6 py-4 w-56 flex justify-between items-center cursor-pointer">
-            {filterOption
-              ? dropdownOption.find((option) => option.value === filterOption)
-                  .label
-              : "Filter & Sort"}
-            <BsChevronDown
-              className={`${
-                open ? "rotate-180 transform" : ""
-              }  text-black text-xl`}
-            />
-          </div>
-          {open ? (
-            <div
-              id="dropdownAvatar"
-              className="z-20 w-56 absolute mt-4 bg-white rounded-xl"
-            >
-              <ul className="flex flex-col p-6 text-sm font-medium text-black">
-                <div className="cursor-default text-gray-500">Sort by</div>
-                {dropdownOption.map((option, i) => {
-                  return (
-                    <li className="flex pt-2 cursor-pointer" key={i}>
-                      <a
-                        onClick={() => handleOptionSelection(option.value)}
-                        className="block pt-1"
-                      >
-                        {option.label}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
+        {/* <div className="flex justify-start items-center w-full mx-auto ">
+          <div onClick={() => onToggleDropdown()}>
+            <div className="text-black text-sm font-medium border-2 bg-white border-orange-600 rounded-xl px-6 py-4 w-56 flex justify-between items-center cursor-pointer">
+              {filterOption
+                ? dropdownOption.find((option) => option.value === filterOption)
+                    .label
+                : "Filter & Sort"}
+              <BsChevronDown
+                className={`${
+                  open ? "rotate-180 transform" : ""
+                }  text-black text-xl`}
+              />
             </div>
-          ) : (
-            <></>
-          )}
-        </div>
-      </div>
+            {open ? (
+              <div
+                id="dropdownAvatar"
+                className="z-20 w-56 absolute mt-4 bg-white rounded-xl"
+              >
+                <ul className="flex flex-col p-6 text-sm font-medium text-black">
+                  <div className="cursor-default text-gray-500">Sort by</div>
+                  {dropdownOption.map((option, i) => {
+                    return (
+                      <li className="flex pt-2 cursor-pointer" key={i}>
+                        <a
+                          onClick={() => handleOptionSelection(option.value)}
+                          className="block pt-1"
+                        >
+                          {option.label}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
+        </div> */}
 
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 pt-20">
       {
